@@ -240,16 +240,29 @@ current_room=1
 while True:
     command=input(print("Enter your command,Knight"))
     if command=="go north":
-        go_north()
+        go_north(current_room)
     elif command=="go south":
-        go_south()
+        go_south(current_room)
     elif command=="go west":
-        go_west() 
+        go_west(current_room) 
     elif command=="go east":
-        go_east()
+        go_east(current_room)
     elif command=="help":
         commands()
     elif command=="lookroom":
         lookroom(current_room)
+    else:
+         splitList=command.split(" ")
+         if splitList[0]=='use':
+             use(splitList[1],cuurent_room)
+         elif splitList[0]=='look':
+             look(splitList[1])
+         elif splitList[0]=='drop':
+             drop(splitList[1],current_room)
+         elif splitList[0]=='take':
+             take(splitList[1],i)
+    if current_room==1 and "sharp_sword" in inventory:
+        print("You have the Ascalon. Now go out there and get rid of the dragon once and for all, like Saint George once did." )
+        break
 
 
