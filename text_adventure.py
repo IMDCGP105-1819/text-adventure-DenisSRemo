@@ -1,29 +1,29 @@
 import time
 #creating the rooms
-room1=["arrow"]
-r1="Entrance to the Castle of  Richard Duke of Normandy"
-room2=["guard","arrow"]
-r2="garrison quarters"
-room3=[]
-r3="hallway"
-room4=["blade"]
-r4="war room"
-room5=[]
-r5="hallway"
-room6=["cross"]
-r6="pray room"
-room7=["hilt"]
-r7="hallway"
-room7=["throne","crown"]
-r8="throne room"
-room9=["grindstone"]
-r9="armoury"
-room10=["helmet"]
-r10="hallway"
-room11=["arrow"]
-r11="hallway"
-room12=["crafting_table","bow"]
-r12="workshop"
+room[1]=["arrow"]
+r[1]="Entrance to the Castle of  Richard Duke of Normandy"
+room[2]=["guard","arrow"]
+r[2]="garrison quarters"
+room[3]=[]
+r[3]="hallway"
+room[4]=["blade"]
+r[4]="war room"
+room[5]=[]
+r[5]="hallway"
+room[6]=["cross"]
+r[6]="pray room"
+room[7]=["hilt"]
+r[7]="hallway"
+room[7]=["throne","crown"]
+r[8]="throne room"
+room[9]=["grindstone"]
+r[9]="armoury"
+room[10]=["helmet"]
+r[10]="hallway"
+room[11]=["arrow"]
+r[11]="hallway"
+room[12]=["crafting_table","bow"]
+r[12]="workshop"
 #basic movement
 def go_north(current_room):
     time.sleep(3)
@@ -50,101 +50,102 @@ def go_west(current_room):
         print("Sorry.But you noy can go further west!")
     else:
         current_room-=1
+
 #description of the room
 def lookroom(i):
     time.sleep(3)
     
     if i==1:
         print("You are at the :")
-        print(r1)
+        print(r[1])
         print("The castle looks abandoned and the gate is open. After a close inspection  of the entrance it looks like this castke was attacked.")
         print("We can say that the inhabitants left the castle during the attack and when the attackers entered the castle, they looted as much as they can and left if to rot.")
         print("Here you can see:")
-        print(room1)
+        print(room[1])
     else:
         if i==2:
             print("You are in the: ")
-            print(r2)
+            print(r[2])
             print()
             print("In this room you can see:")
-            print(room2)
+            print(room[2])
         else:
             if i==3:
                 print("You are in the: ")
-                print(r3)
+                print(r[3])
                 print()
                 print("In this room you can see:")
-                print(room3)
+                print(room[3])
             else:
                 if i==4:
                     print("You are in the: ")
-                    print(r4)
+                    print(r[4])
                     print()
                     print("In this room you can see:")
-                    print(room4)
+                    print(room[4])
                 else:
                     if i==5:
                         print("You are in the:")
-                        print(r5)
+                        print(r[5])
                         print()
                         print("In this room you can see:")
-                        print(room5)
+                        print(room[5])
                     else:
                         if i==6:
                             print("You are in the: ")
-                            print(r6)
+                            print(r[6])
                             print()
                             print("In this room you can see:")
-                            print(room6)
+                            print(room[6])
                         else:
                             if i==7:
                                 print("You are in the ")
-                                print(r7)
+                                print(r[7])
                                 print()
                                 print("In this room you can see:")
-                                print(room7)
+                                print(room[7])
                             else:
                                 if i==8:
                                     print("You are in the ")
-                                    print(r8)
+                                    print(r[8])
                                     print()
                                     print("In this room you can see:")
-                                    print(room8)
+                                    print(room[8])
                                 else:
                                     if i==9:
                                         print("You are in the ")
-                                        print(r9)
+                                        print(r[9])
                                         print()
                                         print("In this room you can see:")
-                                        print(room9)
+                                        print(room[9])
                                     else:
                                         if i==10:
                                             print("You are in the ")
-                                            print(r10)
+                                            print(r[10])
                                             print()
                                             print("In this room you can see:")
-                                            print(room10)
+                                            print(room[10])
                                         else:
                                             if i==11:
                                                 print("You are in the ")
-                                                print(r11)
+                                                print(r[11])
                                                 print()
                                                 print("In this room you can see:")
-                                                print(room11)
+                                                print(room[11])
                                             else:
                                                 if i==12:
                                                     print("You are in the ")
-                                                    print(r12)
+                                                    print(r[12])
                                                     print()
                                                     print("In this room you can see:")
-                                                    print(room12)
+                                                    print(room[12])
 
 #take item
 def take(thing,i):
     time.sleep(3)
     print("Item is now in your inventory")
     if thing=="throne" or thing=="crafting_table" or thing=="grindstone":
-        print("You can carry that. It is too heavy")
+        print("You can not carry that. It is too heavy")
     else:
         inventory.append(thing)
         room[i].remove(thing)
@@ -173,10 +174,10 @@ def drop(thing,i):
     print("Ok")
     
 #look item  
-def look(thing):
+def look(thing,i):
     time.sleep(3)
-    if thing not in inventory:
-         print("That item is not in your inventory")
+    if thing not in inventory or thing not in room[i]:
+         print("That item can not be found either in your inventory nor in the current room")
     else:
         if thing=="blade":
              print("Blade of the Ascalon,made out of Damascus Steel and forged in Rome. You can feel the power of God in it. It is blunt at the moment.")
@@ -202,9 +203,9 @@ def commands():
     print("'go east' gets you in the eastern room")
     print("'go west' gets you in the western room ")
     print("'lookroom' gets you a list of items in your current room and a description of the room")
-    print("'look <item>' gets you a short description of an item which is in your inventory")
+    print("'look <item>' gets you a short description of an item which is in your inventory or in the current room")
     print("'drop <item>' drop a certain item which is in your inventory ")
-    print("'use <item>' uses a specific item in your inventory")
+    print("'use <item>' uses a specific item, in this case the grindstone or the crafting table")
     print("'take <item>' will take an item from current room and will put in in your inventory")
 #small talk to introduce the player to the game
 def intro():
@@ -250,4 +251,5 @@ while True:
         commands()
     elif command=="lookroom":
         lookroom(current_room)
+
 
