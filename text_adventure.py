@@ -1,5 +1,7 @@
 import time
 #creating the rooms
+room=[]
+r=[]
 room[1]=["arrow"]
 r[1]="Entrance to the Castle of  Richard Duke of Normandy"
 room[2]=["guard","arrow"]
@@ -25,32 +27,35 @@ r[11]="hallway"
 room[12]=["crafting_table","bow"]
 r[12]="workshop"
 #basic movement
-def go_north(current_room):
+def go_north():
+    global current_room
     time.sleep(3)
     if current_room==1 or current_room==2 or current_room==3 or current_room==4:
         print("Sorry.But you can not go further north!")
     else:
         current_room=current_room-4
-def go_south(current_room):
+def go_south():
+    global current_room
     time.sleep(3)
     if current_room==9 or current_room==10 or current_room==11 or current_room==12:
         print("Sorry.But you can not go further south!")
     else:
           current_room=current_room+4
-def go_east(current_room):
+def go_east():
+    global current_room
     time.sleep(3)
     if current_room==4 or current_room==8 or current_room==12:
         print("Sorry,Sir.But you can not go further east!")
     else:
-            current_room+=1
+         current_room= current_room+1
 
-def go_west(current_room):
+def go_west():
+    global current_room
     time.sleep(3)
     if current_room==1 or current_room==5 or current_room==9:
         print("Sorry.But you noy can go further west!")
     else:
         current_room-=1
-
 #description of the room
 def lookroom(i):
     time.sleep(3)
@@ -145,7 +150,7 @@ def take(thing,i):
     time.sleep(3)
     print("Item is now in your inventory")
     if thing=="throne" or thing=="crafting_table" or thing=="grindstone":
-        print("You can not carry that. It is too heavy")
+        print("You can carry that. It is too heavy")
     else:
         inventory.append(thing)
         room[i].remove(thing)
@@ -174,10 +179,10 @@ def drop(thing,i):
     print("Ok")
     
 #look item  
-def look(thing,i):
+def look(thing):
     time.sleep(3)
-    if thing not in inventory or thing not in room[i]:
-         print("That item can not be found either in your inventory nor in the current room")
+    if thing not in inventory:
+         print("That item is not in your inventory")
     else:
         if thing=="blade":
              print("Blade of the Ascalon,made out of Damascus Steel and forged in Rome. You can feel the power of God in it. It is blunt at the moment.")
@@ -203,9 +208,9 @@ def commands():
     print("'go east' gets you in the eastern room")
     print("'go west' gets you in the western room ")
     print("'lookroom' gets you a list of items in your current room and a description of the room")
-    print("'look <item>' gets you a short description of an item which is in your inventory or in the current room")
+    print("'look <item>' gets you a short description of an item which is in your inventory")
     print("'drop <item>' drop a certain item which is in your inventory ")
-    print("'use <item>' uses a specific item, in this case the grindstone or the crafting table")
+    print("'use <item>' uses a specific item in your inventory")
     print("'take <item>' will take an item from current room and will put in in your inventory")
 #small talk to introduce the player to the game
 def intro():
@@ -221,7 +226,7 @@ def intro():
     time.sleep(3)
     name=input("What is your name,Knight? ")
     time.sleep(3)
-    title=input(print("What is your title, if you have such thing?"))
+    title=input("What is your title, if you have such thing?")
     time.sleep(3)
     print("So, you are searching for the Ascalon in this castle,the Castle of Richard Duke of Normandy.")
     time.sleep(3)
@@ -236,9 +241,12 @@ def intro():
     print("If you need help, enter <help> and I will show the commands")
 intro()
 current_room=1
+inventory=[]
 #main loop
 while True:
-    command=input(print("Enter your command,Knight"))
+    
+    print("Enter your command,Knight")
+    command=input()
     if command=="go north":
         go_north(current_room)
     elif command=="go south":
@@ -260,9 +268,7 @@ while True:
          elif splitList[0]=='drop':
              drop(splitList[1],current_room)
          elif splitList[0]=='take':
-             take(splitList[1],i)
+             take(splitList[1],current_room)
     if current_room==1 and "sharp_sword" in inventory:
         print("You have the Ascalon. Now go out there and get rid of the dragon once and for all, like Saint George once did." )
         break
-
-
