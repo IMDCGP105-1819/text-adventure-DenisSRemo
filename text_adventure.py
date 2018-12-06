@@ -8,7 +8,7 @@ def print_slow(str):
         time.sleep(0)
     print()
 #creating the rooms
-room=[[],["arrow "],["guard ","arrow "],[],["blade "],[],["cross "],["hilt "],["throne ","crown "],["grindstone "],["helmet "],["arrow "],["crafting_table ","bow "]]
+room=[[],["arrow"],["guard","arrow"],[],["blade"],[],["cross"],["hilt"],["throne","crown"],["grindstone"],["helmet"],["arrow"],["crafting_table","bow"]]
 r=["a","Entrance to the Castle of  Richard Duke of Normandy","garrison quarters","hallway","war room","hallway","church","hallway","throne room","armoury","hallway","hallway","workshop"]
 
 #basic movement
@@ -26,7 +26,7 @@ def go_south(current_room):
         return 4
 def go_east(current_room):
     if current_room==4 or current_room==8 or current_room==12:
-        print_slow("Sorry,Sir.But you can not go further east!")
+        print_slow("Sorry.But you can not go further east!")
         return 0
     else:
         return 1
@@ -47,96 +47,87 @@ def lookroom(i):
         print_slow("We can say that the inhabitants left the castle during the attack and when the attackers entered the castle, they looted as much as they can and left if to rot.")
         print_slow("Here you can see:")
         print_slow(room[1])
-    else:
-        if i==2:
-            print_slow("You are in the: ")
-            print_slow(r[2])
-            print_slow("t")
-            print_slow("In this room you can see:")
-            print_slow(room[2])
-        else:
-            if i==3:
-                print_slow("You are in the: ")
-                print_slow(r[3])
-                print_slow("t")
-                print_slow("In this room you can see:")
-                print_slow(room[3])
-            else:
-                if i==4:
-                    print_slow("You are in the: ")
-                    print_slow(r[4])
-                    print_slow("t")
-                    print_slow("In this room you can see:")
-                    print_slow(room[4])
-                else:
-                    if i==5:
-                        print_slow("You are in the:")
-                        print_slow(r[5])
-                        print_slow("T")
-                        print_slow("In this room you can see:")
-                        print_slow(room[5])
-                    else:
-                        if i==6:
-                            print_slow("You are in the: ")
-                            print_slow(r[6])
-                            print_slow("T")
-                            print_slow("In this room you can see:")
-                            print_slow(room[6])
-                        else:
-                            if i==7:
-                                print_slow("You are in the ")
-                                print_slow(r[7])
-                                print_slow("T")
-                                print_slow("In this room you can see:")
-                                print_slow(room[7])
-                            else:
-                                if i==8:
-                                    print_slow("You are in the ")
-                                    print_slow(r[8])
-                                    print_slow("T")
-                                    print_slow("In this room you can see:")
-                                    print_slow(room[8])
-                                else:
-                                    if i==9:
-                                        print_slow("You are in the ")
-                                        print_slow(r[9])
-                                        print_slow("T")
-                                        print_slow("In this room you can see:")
-                                        print_slow(room[9])
-                                    else:
-                                        if i==10:
-                                            print_slow("You are in the ")
-                                            print_slow(r[10])
-                                            print_slow("T")
-                                            print_slow("In this room you can see:")
-                                            print_slow(room[10])
-                                        else:
-                                            if i==11:
-                                                print_slow("You are in the ")
-                                                print_slow(r[11])
-                                                print_slow("T")
-                                                print_slow("In this room you can see:")
-                                                print_slow(room[11])
-                                            else:
-                                                if i==12:
-                                                    print_slow("You are in the ")
-                                                    print_slow(r[12])
-                                                    print_slow("T")
-                                                    print_slow("In this room you can see:")
-                                                    print_slow(room[12])
+    elif i==2:
+        print_slow("You are in the: ")
+        print_slow(r[2])
+        print_slow("t")
+        print_slow("In this room you can see:")
+        print_slow(room[2])
+    elif i==3:
+        print_slow("You are in the: ")
+        print_slow(r[3])
+        print_slow("t")
+        print_slow("In this room you can see:")
+        print_slow(room[3])
+    elif i==4:
+        print_slow("You are in the: ")
+        print_slow(r[4])
+        print_slow("t")
+        print_slow("In this room you can see:")
+        print_slow(room[4])
+    elif i==5:
+        print_slow("You are in the:")
+        print_slow(r[5])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[5])
+    elif i==6:
+        print_slow("You are in the: ")
+        print_slow(r[6])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[6])
+    elif i==7:
+        print_slow("You are in the ")
+        print_slow(r[7])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[7])
+    elif i==8:
+        print_slow("You are in the ")
+        print_slow(r[8])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[8])
+    elif i==9:
+        print_slow("You are in the ")
+        print_slow(r[9])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[9])
+    elif i==10:
+        print_slow("You are in the ")
+        print_slow(r[10])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[10])
+    elif i==11:
+        print_slow("You are in the ")
+        print_slow(r[11])
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[11])
+    elif i==12:
+        print_slow("You are in the ")
+        print_slow(r[12])   
+        print_slow("T")
+        print_slow("In this room you can see:")
+        print_slow(room[12])
 
 #take item
-def take(thing,i):
+def take(thing,i,room,inventory):
    
-    if thing=="throne" or thing=="crafting_table" or thing=="grindstone":
-        print_slow("You can carry that. It is too heavy")
+    if thing=="throne" or thing=="crafting_table" or thing=="grindstone" :
+        print_slow("You can not carry that. It is too heavy")
+    elif thing not in room[i]:
+        print("It is not in the current room")
     else:
         room[i].remove(thing)
         inventory.append(thing)
         print_slow("Item is now in your inventory")
         
 #use item
-def use(thing,i):
+def use(thing,i,inventory):
     print_slow("Ok")
     if i==9 and thing=="grindstone" and "sword" in inventory:
         inventory.remove("sword")
@@ -150,16 +141,17 @@ def use(thing,i):
             inventory.append("sword")
             print_slow("You made the Ascalon, the legendary sword of Saint George. Now find a grindstone to make it sharp enough to kill the dragon")
 #drop item
-def drop(thing,i):
+def drop(thing,i,room,inventory):
     inventory.remove(thing)
     room[i].append(thing)
     print_slow("Ok")
     
 #look item  
-def look(thing,i):
-    if thing not in inventory or thing not in room[i]:
-         print_slow("That item is not in your inventory")
+def look(thing,i,inventory,room):
+    if thing not in inventory and  thing not in room[i]:
+         print_slow("That item is not in your inventory,nor in the current room")
     else:
+        print("a")
         if thing=="blade":
              print_slow("Blade of the Ascalon,made out of Damascus Steel and forged in Rome. You can feel the power of God in it. It is blunt at the moment.")
         elif thing =="guard":
@@ -167,9 +159,9 @@ def look(thing,i):
         elif thing=="hilt":
              print_slow("Hilt of the Ascalon.It is made made out of olive wood with straps made out of lion leather")
         elif thing=="cross":
-             print_slow("A goden cross made in the tenth century")
+             print_slow("A golden cross made in the tenth century")
         elif thing=="crown":
-             print_slow("Crown of Richard Duke of Normandy,made out of gold, silver and decorated with precious gems")
+             print_slow("Crown of Richard Duke of Normandy, made out of gold, silver and decorated with precious gems")
         elif thing== "arrow":
              print_slow("Simple arrow")
         elif thing=="helmet":
@@ -191,7 +183,7 @@ def commands():
 def intro():
     print_slow("Greetings, Knight!")
     print_slow("My name is Sir Denis Remo Ban of Severin.")
-    print_slow("I will guide you while you search in this catle for the Ascalon,used by Saint George to slay the dragon, the same dragon that is now raveging the realm. ")
+    print_slow("I will guide you while you search in this castle for the Ascalon,used by Saint George to slay the dragon, the same dragon that is now raveging the realm. ")
     print_slow("As I was told, your mission is to slay the dragon, as Saint George once did in the legend.")
     print_slow("And there is no better weapon than the sword that slayed the dragon.")
     name=input("What is your name,Knight? ")
@@ -207,6 +199,7 @@ current_room=1
 inventory=[]
 #main loop
 while True:
+    print(inventory)
     print(current_room)
     print_slow("Enter your command,Knight")
     command=input()
@@ -225,14 +218,16 @@ while True:
     else:
          splitList=command.split(" ")
          if splitList[0]=='use':
-             use(splitList[1],current_room)
+             use(splitList[1],current_room,inventory)
          elif splitList[0]=='look':
-             look(splitList[1],current_room)
+             look(splitList[1],current_room,inventory,room)
          elif splitList[0]=='drop':
-             drop(splitList[1],current_room)
+             drop(splitList[1],current_room,room,inventory)
          elif splitList[0]=='take':
-             take(splitList[1],current_room)
+             take(splitList[1],current_room,room,inventory)
     if current_room==1 and "sharp_sword" in inventory:
         print("You have the Ascalon. Now go out there and get rid of the dragon once and for all, like Saint George once did." )
+        print("THE END")
         break
+
 
