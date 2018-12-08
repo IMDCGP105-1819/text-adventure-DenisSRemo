@@ -1,0 +1,17 @@
+go east
+take guard
+go east
+go east
+take blade
+go south
+go west
+take hilt
+go south
+go east
+use crafting_table
+go west
+go west
+go west
+use grindstone
+go north
+go north
