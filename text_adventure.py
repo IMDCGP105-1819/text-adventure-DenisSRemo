@@ -5,7 +5,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0)
+        time.sleep(0.05)
     print()
 #creating the rooms
 room=[[],["arrow"],["guard","arrow"],[],["blade"],[],["cross"],["hilt"],["throne","crown"],["grindstone"],["helmet"],["arrow"],["crafting_table","bow"]]
@@ -33,7 +33,7 @@ def go_east(current_room):
 
 def go_west(current_room):
     if current_room==1 or current_room==5 or current_room==9:
-        print_slow("Sorry.But you noy can go further west!")
+        print_slow("Sorry.But you  can not go further west!")
 
     else:
         return -1
@@ -43,74 +43,86 @@ def lookroom(i):
     if i==1:
         print_slow("You are at the :")
         print_slow(r[1])
-        print_slow("The castle looks abandoned and the gate is open. After a close inspection  of the entrance it looks like this castke was attacked.")
+        print_slow("The castle looks abandoned and the gate is open. After a close inspection  of the entrance it looks like this castle was attacked.")
         print_slow("We can say that the inhabitants left the castle during the attack and when the attackers entered the castle, they looted as much as they can and left if to rot.")
+        print_slow("Possible exits: East, South")
         print_slow("Here you can see:")
         print_slow(room[1])
     elif i==2:
         print_slow("You are in the: ")
         print_slow(r[2])
-        print_slow("t")
+        print_slow("This is the place where the soldiers spent their days when they were not on patrol. Here they ate, trained and waited until it was their turn to go on patrol. ")
+        print_slow("Possible exits: West, East, South")
         print_slow("In this room you can see:")
         print_slow(room[2])
     elif i==3:
         print_slow("You are in the: ")
         print_slow(r[3])
-        print_slow("t")
+        print_slow("A simple hallway")
+        print_slow("Possible exits: West, East, South")
         print_slow("In this room you can see:")
         print_slow(room[3])
     elif i==4:
         print_slow("You are in the: ")
         print_slow(r[4])
-        print_slow("t")
+        print_slow("This is the place where Richard and his generals discuss their next move, both politically and military")
+        print_slow("Possible exits: West, South")
         print_slow("In this room you can see:")
         print_slow(room[4])
     elif i==5:
         print_slow("You are in the:")
         print_slow(r[5])
-        print_slow("T")
+        print_slow("Simple hallway")
+        print_slow("Possible exits: North, East, South")
         print_slow("In this room you can see:")
         print_slow(room[5])
     elif i==6:
         print_slow("You are in the: ")
         print_slow(r[6])
-        print_slow("T")
+        print_slow("This church is small in size, but it had a n important role for the locals back then. Here they found wisdom,spiritual and mental conform and peace.")
+        print_slow("Possible exits: North, West, East, South")
         print_slow("In this room you can see:")
         print_slow(room[6])
     elif i==7:
         print_slow("You are in the ")
         print_slow(r[7])
-        print_slow("T")
+        print_slow("Simple hallway")
+        print_slow("Possible exits: North, West, East, South")
         print_slow("In this room you can see:")
         print_slow(room[7])
     elif i==8:
         print_slow("You are in the ")
         print_slow(r[8])
-        print_slow("T")
+        print_slow("Here you can find the throne of Richard. The is made out of marble and it is still intact.")
+        print_slow("Possible exits: North, West, South")
         print_slow("In this room you can see:")
         print_slow(room[8])
     elif i==9:
         print_slow("You are in the ")
         print_slow(r[9])
-        print_slow("T")
+        print_slow("This is the place where the soldiers stored their weapons and armour")
+        print_slow("Possible exits: North,East")
         print_slow("In this room you can see:")
         print_slow(room[9])
     elif i==10:
         print_slow("You are in the ")
         print_slow(r[10])
-        print_slow("T")
+        print_slow("Simple hallway")
+        print_slow("Possible exits: North, West, East")
         print_slow("In this room you can see:")
         print_slow(room[10])
     elif i==11:
         print_slow("You are in the ")
         print_slow(r[11])
-        print_slow("T")
+        print_slow("Simple hallway")
+        print_slow("Possible exits: North, West, East")
         print_slow("In this room you can see:")
         print_slow(room[11])
     elif i==12:
         print_slow("You are in the ")
         print_slow(r[12])   
-        print_slow("T")
+        print_slow("The castle was well-known back then because of its workshop, where products of high quality were made, including steel, glass and pottery.")
+        print_slow("Possible exits: North, West")
         print_slow("In this room you can see:")
         print_slow(room[12])
 
@@ -174,7 +186,7 @@ def commands():
     print_slow("'go south' gets you in the southern room")
     print_slow("'go east' gets you in the eastern room")
     print_slow("'go west' gets you in the western room ")
-    print_slow("'lookroom' gets you a list of items in your current room and a description of the room")
+    print_slow("'look room' gets you a list of items in your current room and a description of the room")
     print_slow("'look <item>' gets you a short description of an item which is in your inventory")
     print_slow("'drop <item>' drop a certain item which is in your inventory ")
     print_slow("'use <item>' uses a specific item in your inventory")
@@ -199,8 +211,6 @@ current_room=1
 inventory=[]
 #main loop
 while True:
-    print(inventory)
-    print(current_room)
     print_slow("Enter your command,Knight")
     command=input()
     if command=="go north":
@@ -220,13 +230,16 @@ while True:
          if splitList[0]=='use':
              use(splitList[1],current_room,inventory)
          elif splitList[0]=='look':
-             look(splitList[1],current_room,inventory,room)
+             if splitList[1]=='room':
+                 lookroom(current_room)
+             else:
+                 look(splitList[1],current_room,inventory,room)
          elif splitList[0]=='drop':
              drop(splitList[1],current_room,room,inventory)
          elif splitList[0]=='take':
              take(splitList[1],current_room,room,inventory)
     if current_room==1 and "sharp_sword" in inventory:
-        print("You have the Ascalon. Now go out there and get rid of the dragon once and for all, like Saint George once did." )
+        print("You have the Ascalon. Now get out there and get rid of the dragon once and for all, like Saint George once did." )
         print("THE END")
         break
 
