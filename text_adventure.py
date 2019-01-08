@@ -191,7 +191,7 @@ def commands():
     print_slow("'go east' gets you in the eastern room")
     print_slow("'go west' gets you in the western room ")
     print_slow("'look room' gets you a list of items in your current room and a description of the room")
-    print_slow("'look <item>' gets you a short description of an item which is in your inventory")
+    print_slow("'look <item>' gets you a short description of an item which is in your inventory or in the current room")
     print_slow("'drop <item>' drop a certain item which is in your inventory ")
     print_slow("'use <item>' uses a specific item in your inventory")
     print_slow("'take <item>' will take an item from current room and will put in in your inventory")
