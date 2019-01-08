@@ -5,7 +5,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(0.10)
     print()
 #creating the rooms
 room=[[],["arrow"],["guard","arrow"],[],["blade"],[],["cross"],["hilt"],["throne","crown"],["grindstone"],["helmet"],["arrow"],["crafting_table","bow"]]
@@ -243,8 +243,8 @@ while True:
          elif splitList[0]=='take':
              take(splitList[1],current_room,room,inventory)
     if current_room==1 and "sharp_sword" in inventory:
-        print("You have the Ascalon. Now get out there and get rid of the dragon once and for all, like Saint George once did." )
-        print("THE END")
+        print_slow("You have the Ascalon. Now get out there and get rid of the dragon once and for all, like Saint George once did." )
+        print_slow("THE END")
         break
 
 
