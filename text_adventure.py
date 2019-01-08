@@ -17,25 +17,29 @@ def go_north(current_room):
         print_slow("Sorry.But you can not go further north!")
         return 0
     else:
+        print_slow("You went north!")
         return -4
 def go_south(current_room):
     if current_room==9 or current_room==10 or current_room==11 or current_room==12:
         print_slow("Sorry.But you can not go further south!")
         return 0
     else:
+        print_slow("You went south!")
         return 4
 def go_east(current_room):
     if current_room==4 or current_room==8 or current_room==12:
         print_slow("Sorry.But you can not go further east!")
         return 0
     else:
+        print_slow("You went east!")
         return 1
 
 def go_west(current_room):
     if current_room==1 or current_room==5 or current_room==9:
         print_slow("Sorry.But you  can not go further west!")
-
+        return 0
     else:
+        print_slow("You went west!")
         return -1
 #description of the room
 def lookroom(i):
