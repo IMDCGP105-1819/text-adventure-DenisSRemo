@@ -5,7 +5,7 @@ def print_slow(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(0.10)
+        time.sleep(0.05)
     print()
 #creating the rooms
 room=[[],["arrow"],["guard","arrow"],[],["blade"],[],["cross"],["hilt"],["throne","crown"],["grindstone"],["helmet"],["arrow"],["crafting_table","bow"]]
@@ -167,11 +167,11 @@ def look(thing,i,inventory,room):
     if thing not in inventory and  thing not in room[i]:
          print_slow("That item is not in your inventory,nor in the current room")
     else:
-        print("a")
+        
         if thing=="blade":
              print_slow("Blade of the Ascalon,made out of Damascus Steel and forged in Rome. You can feel the power of God in it. It is blunt at the moment.")
         elif thing =="guard":
-             print_slow("Guard of the Ascalon, with beautiful engravings on it.If you look closer, you can see the image of Christ, the cross and the acvila. After all, it is aint George's sword and it was made in Rome.")
+             print_slow("Guard of the Ascalon, with beautiful engravings on it.If you look closer, you can see the image of Christ, the cross and the acvila. After all, it is Saint George's sword and it was made in Rome.")
         elif thing=="hilt":
              print_slow("Hilt of the Ascalon.It is made made out of olive wood with straps made out of lion leather")
         elif thing=="cross":
